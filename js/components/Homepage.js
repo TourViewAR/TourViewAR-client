@@ -36,25 +36,32 @@ import { selectTourName } from "../redux/tour/tour.selectors";
 const HomePage = props => {
   return (
     <Container style={{ width: "100%", height: "100%" }}>
-      <Header>
+      <Header style={{backgroundColor: '#2a7886'}}>
         <Left />
         <Body>
-          <Title>TourViewAR</Title>
+          <Title style={{color: 'white'}}>TourViewAR</Title>
         </Body>
         <Right />
       </Header>
-      <Content>
-        <View style={{ alignItems: "center", marginBottom: 30 }}>
+      <Content style={{backgroundColor: '#49beb7'}}>
+        <View style={{ borderTopColor: 'orange', borderTopWidth: 1, alignItems: "center", marginTop: width * 0.15, borderRadius: width * 0.3, backgroundColor: 'white', height: width * 0.6, width: width * 0.6, marginLeft: width * 0.2 }}>
+          <View style={{marginTop: height * 0.1}}>
+            <Text style={{fontFamily: 'Gill Sans', fontSize: 35, color: '#fe5f55'}}>TOURVIEWAR</Text>
+          </View>  
+          <View tyle={{marginTop: height * 0.1}}>
+            <Text style={{color: '#a64942', fontSize: 15}}>Create Your Own Virtual Space</Text>
+          </View>
+        </View>
+        <View style={{ alignItems: "center", marginTop: 0.035 * height, marginBottom: 0.015 * height }}>
           <Image
-            style={{ width: 250, height: 250, justifyContent: "center" }}
-            source={require("../res/logo.png")}
+            style={{ width: 0.15 * width, height: 0.15 * width, justifyContent: "center" }}
+            source={require("../res/camera.png")}
           ></Image>
         </View>
-        <CardItem>
+        <CardItem style={{backgroundColor: '#49beb7'}}>
           <Body style={{ alignItems: "center" }}>
             <View style={{ alignItems: "center" }}>
-              <Thumbnail large source={require("../res/aaron.jpg")}></Thumbnail>
-              <Text>{props.selectUserName}</Text>
+              <Text style={{color: 'white'}}>{`Welcome ${props.selectUserName}`}</Text>
             </View>
           </Body>
         </CardItem>
