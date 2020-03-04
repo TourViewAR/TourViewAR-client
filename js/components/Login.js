@@ -213,35 +213,44 @@ class Login extends Component {
   _getExperienceSelector() {
     return (
       <Container style={{ width: "100%", height: "100%" }}>
-        <Header>
+        <Header style={{backgroundColor: '#2a7886'}}>
           <Left />
           <Body>
-            <Title>TourViewAR</Title>
+            <Title style={{color: 'white'}}>TourViewAR</Title>
           </Body>
           <Right />
         </Header>
-        <Content>
-          <View style={{ alignItems: "center" }}>
-            <Image
-              source={require("../res/logo.png")}
-              style={{ height: 200, width: 200 }}
-            />
+        <Content style={{ backgroundColor: '#49beb7' }}>
+          <View style={{ borderTopColor: '#49beb7', borderTopWidth: 1, alignItems: "center", marginTop: width * 0.15, borderRadius: width * 0.3, backgroundColor: 'white', height: width * 0.6, width: width * 0.6, marginLeft: width * 0.2 }}>
+          <View style={{marginTop: height * 0.1}}>
+            <Text style={{fontFamily: 'Gill Sans', fontSize: 35, color: '#fe5f55'}}>TOURVIEWAR</Text>
+          </View>  
+          <View tyle={{marginTop: height * 0.1}}>
+            <Text style={{color: '#a64942', fontSize: 15}}>Create Your Own Virtual Space</Text>
+          </View>
+          </View>
+          <View style={{ alignItems: "center", marginTop: width * 0.075 }}>
+              <Image
+                source={require("../res/camera.png")}
+                style={{ height: width * 0.15, width: width * 0.15 }}
+              />
           </View>
           <View
             style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
           >
             <Form
               style={{
-                width: 250
+                width: 0.67 * width
               }}
             >
-              <Item floatingLabel>
-                <Label>Username</Label>
-                <Input onChangeText={text => this.props.setUserName(text)} />
+              <Item floatingLabel style={{marginBottom: width * 0.025}}>
+                <Label style={{color: 'white'}}>Username</Label>
+                <Input style={{color: 'white'}} 
+                  onChangeText={text => this.props.setUserName(text)} />
               </Item>
               <Item floatingLabel>
-                <Label>Password</Label>
-                <Input
+                <Label style={{color: 'white'}}>Password</Label>
+                <Input style={{color: 'white'}}
                   secureTextEntry={true}
                   onChangeText={text => this.props.setUserPassword(text)}
                 />
@@ -249,6 +258,8 @@ class Login extends Component {
             </Form>
             <View
               style={{
+                marginTop: width * 0.1,
+                marginBottom: width * 0.025,
                 flex: 1,
                 alignItems: "center",
                 justifyContent: "center"
@@ -256,10 +267,11 @@ class Login extends Component {
             >
               <Button
                 block
-                light
                 style={{
-                  margin: 20,
-                  width: 250
+                  color: 'white',
+                  backgroundColor: '#fe5f55',
+                  width: width * 0.6,
+                  alignItems: 'center'
                 }}
                 // onPress={this._loginHandler}
                 onPress={this._getUserLogin}
@@ -268,27 +280,22 @@ class Login extends Component {
               </Button>
             </View>
           </View>
-          <View style={styles.outer}>
-            <Button
-              block
-              onPress={() => {
-                this.props.navigate(REACT_NATIVE_HOME);
-              }}
-              style={{ marginBottom: 20 }}
-            >
-              <Text style={styles.buttonText}>HOMEPAGE</Text>
-            </Button>
-
+          <View style={{...styles.outer, backgroundColor: '#49beb7'}}>
             <Button
               block
               onPress={() => {
                 this.props.navigate(REACT_NATIVE_SIGNUP);
-              }}
+              }} style={{ color: 'white',
+              backgroundColor: '#fe5f55', 
+              width: width * 0.6, 
+              marginLeft: width * 0.2,
+            }}
             >
               <Text style={styles.buttonText}>SIGN UP</Text>
             </Button>
           </View>
         </Content>
+        <Footer style={{backgroundColor: '#2a7886', height: height * 0.03}}/>
       </Container>
     );
   }
